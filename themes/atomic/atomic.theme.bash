@@ -109,10 +109,11 @@ ____atomic_bottom() {
 
 ___atomic_prompt_user_info() {
   color=$white
-  box="${normal}${LineA}\$([[ \$? != 0 ]] && echo \"${BIWhite}[${IRed}${SX}${BIWhite}]${normal}${Line}\")${Line}${BIWhite}[|${BIWhite}]${normal}${Line}"
-  info="${IYellow}\u${IRed}@${IGreen}\h"
+  #box="${normal}${LineA}\$([[ \$? != 0 ]] && echo \"${BIWhite}[${IRed}${SX}${BIWhite}]${normal}${Line}\")${Line}${BIWhite}[|${BIWhite}]${normal}${Line}"
+  #info="${IYellow}\u${IRed}@${IGreen}\h"
+  info="${IYellow}\u${IGreen}@"
   
-  #printf "%s|%s|%s|%s" "${color}" "${info}" "${white}" "${box}"
+  printf "%s|%s|%s|%s" "${color}" "${info}" "${white}" "${box}"
 }
 
 ___atomic_prompt_dir() {
