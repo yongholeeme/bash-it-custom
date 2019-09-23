@@ -13,6 +13,8 @@ if tput setaf 1 &> /dev/null; then
       Cyan="\[\033[0;36m\]"
       blue="\033[0;34m"
       lightblue="\033[0;36m"
+			IYellow="\e[1;49;33m"
+			IGreen="\e[1;49;32m"
     else
       MAGENTA=$(tput setaf 5)
       ORANGE=$(tput setaf 4)
@@ -23,6 +25,8 @@ if tput setaf 1 &> /dev/null; then
       Cyan="\[\033[0;36m\]" 
       blue="\033[0;34m"
       lightblue="\033[0;36m"
+			IYellow="\e[1;49;33m"
+			IGreen="\e[1;49;32m"
     fi
     BOLD=$(tput bold)
     RESET=$(tput sgr0)
@@ -50,7 +54,7 @@ parse_git_branch () {
 function prompt_command() {
   # PS1="\[${BOLD}${Cyan}\]\u \[$White\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
   # PS1="✨\[${GREEN}\]\u✨ \[$RESET\]in \[$lightblue\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$RESET\]$(virtualenv_prompt) \n\$ \[$RESET\]"
-  PS1="🌊 \[$MAGENTA\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$RESET\]$(virtualenv_prompt) \n\$ \[$RESET\]"
+  PS1="\[$IYellow\]\u\[$IGreen\]@\[$MAGENTA\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$RESET\]$(virtualenv_prompt) \n\[$IYellow\]>> \[$RESET\]"
 }
 
 safe_append_prompt_command prompt_command
